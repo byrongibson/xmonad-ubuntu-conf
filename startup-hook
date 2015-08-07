@@ -35,6 +35,21 @@ if [ -z "$(pgrep system-config-printer-applet)" ] ; then
     system-config-printer-applet &
 fi
 
+# Software KVM
+if [ -z "$(pgrep synergy)" ] ; then
+    synergy &
+fi
+
+# Backup
+if [ -z "$(pgrep SpiderOakONE)" ] ; then
+    SpiderOakONE &
+fi
+
+# Backup
+if [ -z "$(pgrep dropbox)" ] ; then
+    dropbox &
+fi
+
 #
 # APPLICATION LAUNCHER
 #
@@ -70,5 +85,5 @@ fi
 # change depending on what devices you have plugged into USB. We extract the
 # id of the device from the output of xinput, then use it to disable the
 # device
-TOUCHPAD_ID=`xinput | grep 'Synaptics TouchPad' | cut -f 2 | cut -f 2 -d =`
-xinput set-prop $TOUCHPAD_ID "Device Enabled" 0
+#TOUCHPAD_ID=`xinput | grep 'Synaptics TouchPad' | cut -f 2 | cut -f 2 -d =`
+#xinput set-prop $TOUCHPAD_ID "Device Enabled" 0
