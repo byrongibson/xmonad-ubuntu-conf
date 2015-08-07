@@ -22,7 +22,7 @@ Config {
   -- of your screen to make it play nicely with stalonetray, which we
   -- want to be taking up the remainer of the space on the right side
   -- of your screen.
-  position = TopW L 95, 
+  position = TopW L 80, 
 
   -- list of commands which gather information about your system for
   -- presentation in the bar. 
@@ -45,21 +45,21 @@ Config {
     -- Battery information. This is likely to require some customization
     -- based upon your specific hardware. Or, for a desktop you may want
     -- to just remove this section entirely.
-    Run Battery [
-      "-t", "<acstatus>: <left>%", 
-      "--", 
-      "-c", "charge_full",
-      "-O", "AC",
-      "-o", "Bat",
-      "-h", "green",
-      "-l", "red"
-    ] 10,
+    -- Run Battery [
+    --   "-t", "<acstatus>: <left>%", 
+    --   "--", 
+    --   "-c", "charge_full",
+    --   "-O", "AC",
+    --   "-o", "Bat",
+    --   "-h", "green",
+    --   "-l", "red"
+    -- ] 10,
     
     -- To get volume information, we run a custom bash script.
     -- This is because the built-in volume support in xmobar is disabled
     -- in Debian and derivatives like Ubuntu. 
-    Run Com "~/.xmonad/get-volume" [] "myvolume" 10,
-    
+    Run Com "/bin/bash" ["-c", "~/.xmonad/get-volume"] "myvolume" 10,
+
     -- This line tells xmobar to read input from stdin. That's how we
     -- get the information that xmonad is sending it for display.
     Run StdinReader
@@ -74,5 +74,5 @@ Config {
 
    -- Overall template for the layout of the xmobar contents. Note that
    -- space is significant and can be used to add padding.
-   template = "%StdinReader% }{ %battery% | %cpu% | %memory% | Vol: %myvolume%    <fc=#e6744c>%date%</fc>     "
+   template = "%StdinReader% }{ %cpu% | %memory% | Vol: %myvolume%    <fc=#e6744c>%date%</fc>     "
 }
