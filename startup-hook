@@ -50,6 +50,11 @@ if [ -z "$(pgrep dropbox)" ] ; then
     dropbox &
 fi
 
+# screen gamma
+if [ -z "$(pgrep redshift)" ] ; then
+    redshift &
+fi
+
 #
 # APPLICATION LAUNCHER
 #
